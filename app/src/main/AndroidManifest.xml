@@ -21,6 +21,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AllergiesActivity" />
         <activity android:name=".DietaryRestrictionActivity" />
-    </application>
 
+    </application>
 </manifest>

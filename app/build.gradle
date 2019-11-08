@@ -16,7 +16,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dependencies {
+        implementation "com.opencsv:opencsv:4.0"
+    }
 }
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

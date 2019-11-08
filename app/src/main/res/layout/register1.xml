@@ -30,6 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="90dp"
-        android:onClick="allergiesform"
+        android:onClick="next_clicked"
         android:text="NEXT" />
 </LinearLayout>
