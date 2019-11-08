@@ -8,23 +8,23 @@ import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AllergiesActivity extends AppCompatActivity {
+public class DietaryRestrictionActivity extends AppCompatActivity {
 
     private Button button_next;
-    private CheckBox CheckBoxEggs;
-    private CheckBox CheckBoxWheat;
-    private CheckBox CheckBoxPeanut;
-    private CheckBox CheckBoxMilk;
+    private CheckBox CheckBoxVegan;
+    private CheckBox CheckBox0Vegetarian;
+    private CheckBox CheckBoxLVegetarian;
+    private CheckBox CheckBoxPVegetarian;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register2);
+        setContentView(R.layout.register3);
 
     }
 
-    public void dietForm(View view) {
-        Intent intent = new Intent(this, DietaryRestrictionActivity.class);
+    public void homeView(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 

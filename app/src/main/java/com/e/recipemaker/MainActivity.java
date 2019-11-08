@@ -2,6 +2,7 @@ package com.e.recipemaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void register_clicked(View view)
     {
-        System.out.println("lalalala");
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }

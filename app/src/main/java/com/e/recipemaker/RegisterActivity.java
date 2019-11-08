@@ -1,5 +1,6 @@
 package com.e.recipemaker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +17,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("ON EST AL");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register1);
 
+
     }
 
-    public void allergiesform(View view)
-    {
-        System.out.println("ddadada");
+    public void allergiesform(View view) {
+        Intent intent = new Intent(this, AllergiesActivity.class);
+        startActivity(intent);
     }
 }

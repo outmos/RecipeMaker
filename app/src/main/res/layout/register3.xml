@@ -9,41 +9,57 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
-        android:text="Allergies"
+        android:text="Dietary restrictions"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
 
     <CheckBox
-        android:id="@+id/checkBoxEggs"
+        android:id="@+id/checkBoxVegan"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:text="Eggs" />
+        android:text="Vegan" />
 
     <CheckBox
-        android:id="@+id/checkBoxPeanut"
+        android:id="@+id/checkBoxOVegetarian"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:text="Peanut" />
+        android:text="Ovo-Vegetarian" />
 
     <CheckBox
-        android:id="@+id/checkBoxWheat"
+        android:id="@+id/checkBoxLVegetarian"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:text="Wheat" />
+        android:text="Lacto-Vegetarian" />
 
     <CheckBox
-        android:id="@+id/checkBoxMilk"
+        android:id="@+id/checkBoxPVegetarian"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:text="Milk" />
+        android:text="Pesco-Vegetarian" />
+
+    <CheckBox
+        android:id="@+id/checkBoxKosher"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Kosher (Judaism)" />
+
+    <CheckBox
+        android:id="@+id/checkBoxHalal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Halal (Islam)" />
 
     <Button
         android:id="@+id/button_next"
@@ -51,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="40dp"
-        android:onClick="dietForm"
+        android:onClick="homeView"
         android:text="NEXT" />
 
 </LinearLayout>

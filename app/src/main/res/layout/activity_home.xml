@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:chipSpacing="20dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/vegeterain"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/vegetarian"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/vegan"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/vegan"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/pescetarian"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/pescetarian"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/italian"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Italian"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/mexican"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Mexican"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chinese"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Chinese"
+            app:chipBackgroundColor="#009688"
+            app:chipCornerRadius="15dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <ListView
+        android:id="@+id/listViewID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true" >
+
+    </ListView>
+
+</LinearLayout>
