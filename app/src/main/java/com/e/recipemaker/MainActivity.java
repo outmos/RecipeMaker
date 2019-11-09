@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void signin_clicked(View view)
     {
-        System.out.println("ddadada");
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
     }
 
     public void register_clicked(View view)
