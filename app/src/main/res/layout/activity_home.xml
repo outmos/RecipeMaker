@@ -83,10 +83,23 @@
     <ListView
         android:id="@+id/listViewID"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="412dp"
         android:clickable="true"
-        android:focusable="true" >
+        android:focusable="true">
 
     </ListView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- View pager to swipe views -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"/>
 
 </LinearLayout>

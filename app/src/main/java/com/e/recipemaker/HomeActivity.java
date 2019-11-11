@@ -1,7 +1,9 @@
 package com.e.recipemaker;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import android.util.Log;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,9 +11,12 @@ import android.widget.ListView;
 
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
-String[] nameArray = {"Tacos","Quiche Lorraine","Pizza"};
+public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+
+    String[] nameArray = {"Tacos", "Quiche Lorraine", "Pizza"};
 
     String[] infoArray = {
             "Faboulous Tacos",
@@ -24,9 +29,11 @@ String[] nameArray = {"Tacos","Quiche Lorraine","Pizza"};
             R.drawable.pizza};
 
     Integer[] ratingArray = {3, 4, 5};
+    //This is our tablayout
+    private TabLayout tabLayout;
 
-
-
+    //This is our viewPager
+    private ViewPager viewPager;
 
     ListView listView;
 
@@ -59,10 +66,39 @@ String[] nameArray = {"Tacos","Quiche Lorraine","Pizza"};
 
                 intent.putExtras(extras);
                 startActivity(intent);
-
             }
         });
+        tabLayout =  findViewById(R.id.tabs);
+        viewPager =  findViewById(R.id.pager);
 
+        //Adding the tabs using addTab() method
+        tabLayout.addTab(tabLayout.newTab().setText("Home"));
+        tabLayout.addTab(tabLayout.newTab().setText("Profil"));
+        tabLayout.addTab(tabLayout.newTab().setText("Micro"));
+
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        //Creating our pager adapter
+        Pager adapter = new Pager(getSupportFragmentManager(), tabLayout.getTabCount());
+        //Adding adapter to pager
+        viewPager.setAdapter(adapter);
+
+        //Adding onTabSelectedListener to swipe views
+        tabLayout.addOnTabSelectedListener(this);
+    }
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        Log.d("d", "onCreate: ");
+        viewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
 
     }
 }
