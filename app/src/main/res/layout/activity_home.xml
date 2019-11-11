@@ -97,7 +97,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <!-- View pager to swipe views -->
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager.widget.ViewPager 
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"/>
