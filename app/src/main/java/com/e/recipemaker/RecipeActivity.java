@@ -2,38 +2,46 @@ package com.e.recipemaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
+
 public class RecipeActivity extends AppCompatActivity {
 
+    String name, description;
+    Integer image;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe);
+        setContentView(R.layout.recipe_details);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
+        Parcelable parcelable = getIntent().getParcelableExtra("DATE-KEY");
+        Recipe recipe = Parcels.unwrap(parcelable);
 
-        String recipe_name = extras.getString("recipe_name");
-        String recipe_info = extras.getString("recipe_info");
-        Integer recipe_rating = Integer.valueOf(getIntent().getStringExtra("recipe_rating"));
-        Integer recipe_image = Integer.valueOf(getIntent().getStringExtra("recipe_image"));
+        TextView nameTextField =  findViewById(R.id.name);
+        ImageView imageView = findViewById(R.id.image);
+        RatingBar ratingsView = findViewById(R.id.rating);
+        TextView nutritionTextField = findViewById(R.id.nutrition);
+        TextView timeTextField = findViewById(R.id.time);
+        TextView ingredientsTextField = findViewById(R.id.ingredients);
+        TextView instructionsTextField = findViewById(R.id.instruction);
+        TextView commentsTextField = findViewById(R.id.comments);
 
-        TextView nameTextField = (TextView) findViewById(R.id.recipeTitle);
-        TextView infoTextField = (TextView) findViewById(R.id.recipeDetails);
-        RatingBar ratingBar = (RatingBar) findViewById(R.id.recipeRatingBar);
-        ImageView imageView = (ImageView) findViewById(R.id.mainImageView);
-
-
-        nameTextField.setText(recipe_name);
-        infoTextField.setText(recipe_info);
-        ratingBar.setRating(recipe_rating);
-        imageView.setImageResource(recipe_image);
-
+        nameTextField.setText(recipe.getName());
+        ratingsView.setRating(recipe.getRatings());
+        Picasso.get().load(recipe.getImage()).into(imageView);
+        nutritionTextField.setText(recipe.getNutrition());
+        timeTextField.setText((recipe.getTime()));
+        ingredientsTextField.setText(recipe.getIngredients());
+        instructionsTextField.setText(recipe.getInstructions());
+        commentsTextField.setText(recipe.getComments());
     }
 }

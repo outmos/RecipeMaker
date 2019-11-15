@@ -1,33 +1,9 @@
 <resources>
-    <string name="app_name">Recipes</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <!-- Strings related to categories of diet -->
-    <string name="vegetarian">Vegetarian</string>
-    <string name="vegan">Vegan</string>
-    <string name="pescetarian">Pescetarian</string>
-    <string name="ovo_vegetarian">Ovo-Vegetarian</string>
-    <string name="lacto_vegetarian">Lacto-Vegetarian</string>
-    <!-- Strings related to cuisines -->
-    <string name="italian">Italian</string>
-    <string name="mexican">Mexican</string>
-    <string name="french">French</string>
-    <!-- Strings related to allergies-->
-    <string name="peanut">Peanut</string>
-    <string name="milk">Milk</string>
-    <string name="egg">Egg</string>
-    <string name="wheat">Wheat</string>
-    <string name="soy">Soy</string>
-    <string name="shellfish">Shellfish</string>
-    <!-- Strings related to religions-->
-    <string name="hinduism">Hinduism</string>
-    <string name="judaism">Judaism</string>
-    <string name="islam">Islam</string>
+    <string name="app_name">Auto Chef</string>
+
+    <string name="vegetarian">vegetarian</string>
+    <string name="vegan">vegan</string>
+    <string name="asian">asian</string>
+    <string name="italian">italian</string>
+    <string name="mexican">mexican</string>
 </resources>
