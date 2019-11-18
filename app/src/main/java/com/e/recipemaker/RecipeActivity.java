@@ -52,6 +52,7 @@ public class RecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatabaseReference recipesReference = FirebaseDatabase.getInstance().getReference().child("Users").child("recipes");
+                recipesReference = recipesReference.child(recipe.getId());
                 recipesReference.setValue(recipe.getName());
                 Toast.makeText(RecipeActivity.this,"The recipe has been added to your favourites !",Toast.LENGTH_LONG).show();
             }
