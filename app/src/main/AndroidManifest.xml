@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FridgeActivity"></activity>
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
@@ -22,6 +24,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AllergiesActivity" />
         <activity android:name=".DietaryRestrictionActivity" />
-
     </application>
+
 </manifest>

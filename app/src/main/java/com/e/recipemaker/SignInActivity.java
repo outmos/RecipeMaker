@@ -34,7 +34,7 @@ public class SignInActivity  extends AppCompatActivity {
         String[] record = {"0", editText.getText().toString(), editText2.getText().toString()};
         int id = IOFile.checkPassword(file, record);
         if (id > 0) {//1 admin, <=0 error
-            Intent intent = new Intent(this, AllergiesActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
         else {

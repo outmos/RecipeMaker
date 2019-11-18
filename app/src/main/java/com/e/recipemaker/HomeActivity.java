@@ -29,11 +29,10 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
             R.drawable.pizza};
 
     Integer[] ratingArray = {3, 4, 5};
-    //This is our tablayout
+
+
     private TabLayout tabLayout;
 
-    //This is our viewPager
-    private ViewPager viewPager;
 
     ListView listView;
 
@@ -68,28 +67,37 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 startActivity(intent);
             }
         });
+
+
+        Intent intent = getIntent();
+
         tabLayout =  findViewById(R.id.tabs);
-        viewPager =  findViewById(R.id.pager);
-
-        //Adding the tabs using addTab() method
-        tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("Profil"));
-        tabLayout.addTab(tabLayout.newTab().setText("Micro"));
-
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        //Creating our pager adapter
-        Pager adapter = new Pager(getSupportFragmentManager(), tabLayout.getTabCount());
-        //Adding adapter to pager
-        viewPager.setAdapter(adapter);
-
-        //Adding onTabSelectedListener to swipe views
         tabLayout.addOnTabSelectedListener(this);
+        TabLayout.Tab tab = tabLayout.getTabAt(0);
+        if(intent.getStringExtra("class") != "home"){
+            tab.select();
+        }
+
     }
+
+
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
-        Log.d("d", "onCreate: ");
-        viewPager.setCurrentItem(tab.getPosition());
+        //Log.d("d", "onCreate: ");
+        //viewPager.setCurrentItem(tab.getPosition());
+
+
+        if(tab.getPosition() == 1){
+            Intent intent = new Intent(this, FridgeActivity.class);
+            intent.putExtra("class", "home");
+            startActivity(intent);
+        }
+        else if(tab.getPosition() == 2){
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("class", "home");
+            startActivity(intent);
+        }
+
     }
 
     @Override

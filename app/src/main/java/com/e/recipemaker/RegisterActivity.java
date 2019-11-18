@@ -19,7 +19,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("ON EST AL");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register1);
         editText = (EditText)findViewById(R.id.editText);

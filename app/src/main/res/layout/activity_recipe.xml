@@ -32,8 +32,32 @@ android:layout_height="match_parent">
     <TextView
         android:id="@+id/recipeDetails"
         android:layout_width="match_parent"
-        android:layout_height="367dp"
+        android:layout_height="250dp"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_gravity="bottom|center">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:text="HOME" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/fridge"
+            android:icon="@drawable/fridge"
+            android:text="FRIDGE" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/profile"
+            android:icon="@drawable/user"
+            android:text="PROFILE" />
+
+    </com.google.android.material.tabs.TabLayout>
 
 </LinearLayout>
