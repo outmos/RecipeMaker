@@ -1,12 +1,15 @@
 package com.e.recipemaker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.os.Bundle;
@@ -15,9 +18,15 @@ import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import androidx.appcompat.widget.Toolbar;
+import android.view.View;
+import android.speech.SpeechRecognizer;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
     EditText search;
     ChipGroup chipGroup;
     Toolbar toolbar;
+    FloatingActionButton fab;
+    SpeechRecognizer sr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +163,38 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
         }
+
+        sr = SpeechRecognizer.createSpeechRecognizer(HomeActivity.this);
+
     }
+
+    public void vocalInput(View view){
+
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH);
+        startActivityForResult(intent, 1); // request code by default to 1 but it can be useful for several vocal inputs
+
+
+
+        //sr.setRecognitionListener(new listener());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && data != null) {
+            ArrayList<String> voiceResult = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            System.out.println(voiceResult);
+            search.setText(voiceResult.get(0);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Failed to recognize speech!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

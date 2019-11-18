@@ -105,4 +105,14 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/VocalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:onClick="vocalInput"
+        app:srcCompat="@drawable/microphone" />
+
 </LinearLayout>
