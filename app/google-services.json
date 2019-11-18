@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "25457820315-9fiv9r62qipt1mogslr47g1i842p14j9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.recipemaker",
+            "certificate_hash": "accda4d58dfc380eaf56fa07a28f27038ceec1ee"
+          }
+        },
+        {
+          "client_id": "25457820315-jeve910uoersbb1f1fltusnnqubms6fk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.recipemaker",
+            "certificate_hash": "90b179088e894810d00ebee361886e867da1faaf"
+          }
+        },
+        {
           "client_id": "25457820315-6gisc69fo95dspal0r1glc3lqp40ieve.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -168,6 +168,9 @@ public class HomeActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(HomeActivity.this, MainActivity.class));
         }
+        if (item.getItemId() == R.id.profil){
+            startActivity(new Intent(HomeActivity.this, ProfilActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 }
