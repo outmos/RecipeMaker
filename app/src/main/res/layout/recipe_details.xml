@@ -54,6 +54,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_input_add" />
 
+
                 <RatingBar
                     android:id="@+id/rating"
                     style="@style/Widget.AppCompat.RatingBar"
