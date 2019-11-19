@@ -24,16 +24,19 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="51dp"
+            android:gravity="center"
             android:text="Favourite recipies : " />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="131dp" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="119dp"
             android:text="Preferences:" />
 
@@ -49,6 +52,7 @@
         android:layout_width="146dp"
         android:layout_height="130dp"
         android:layout_marginStart="132dp"
+
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/facedefault" />
