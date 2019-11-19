@@ -30,25 +30,21 @@ public class ProfilActivity extends AppCompatActivity {
         preferences = findViewById(R.id.textView5);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String userID = user.getUid();
-        System.out.println("id:"+ userID);
+        //System.out.println("id:"+ userID);
 
-        ref.child(userID).child("recipes").addValueEventListener((new ValueEventListener() {;
+        ref.child(userID).addValueEventListener((new ValueEventListener() {;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                System.out.print("zdzdz" + dataSnapshot.getKey());
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    System.out.println("key:"+child.getValue(String.class));
+                //System.out.print("zdzdz" + dataSnapshot.getKey());
+                for (DataSnapshot child : dataSnapshot.child("recipes").getChildren()) {
+                    //System.out.println("key:"+child.getValue(String.class));
                     recipes.append(child.getValue(String.class) + " \n "); // j'ai changé dansa plus de clé et donc ca marche
                 }
 
-                System.out.println(dataSnapshot.child("tags").exists());
+                //System.out.println(dataSnapshot.child("tags").exists());
                 for (DataSnapshot child : dataSnapshot.child("tags").getChildren()) {
-                    System.out.println(child.getValue(String.class));
+                    preferences.append(child.getValue(String.class) + " \n ");
                 }
-                //String value2 = dataSnapshot.child("tags").get firebase y Value(String.class);
-                //System.out.println("attention" + value2);
-                //preferences.setText("pref");
-                //preferences.setText(value2); // si tu fais ca ca va poser problème à cause de la clé
             }
 
             @Override
