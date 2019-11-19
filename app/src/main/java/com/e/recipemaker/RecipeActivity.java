@@ -11,6 +11,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -51,7 +53,8 @@ public class RecipeActivity extends AppCompatActivity {
         addToFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference recipesReference = FirebaseDatabase.getInstance().getReference().child("Users").child("recipes");
+                final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                DatabaseReference recipesReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("recipes");
                 recipesReference = recipesReference.child(recipe.getId());
                 recipesReference.setValue(recipe.getName());
                 Toast.makeText(RecipeActivity.this,"The recipe has been added to your favourites !",Toast.LENGTH_LONG).show();
