@@ -1,109 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search"
-        android:textSize="22sp"
-        android:id="@+id/search"
-        android:layout_margin="15dp"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/filter_chip_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:addStatesFromChildren="false"
-        android:clickable="false"
-        android:fadeScrollbars="false"
-        app:chipSpacingHorizontal="20dp"
-        app:chipSpacingVertical="20dp"
-        app:singleLine="false"
-        app:singleSelection="false">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:textSize="22sp"
+            android:id="@+id/search"
+            android:layout_margin="15dp"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/vegeterain"
-            style="@style/AppTheme"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/filter_chip_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/vegetarian"
-            app:chipBackgroundColor="#EE7171"
-            app:chipCornerRadius="15dp" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:addStatesFromChildren="false"
+            android:clickable="false"
+            android:fadeScrollbars="false"
+            app:chipSpacingHorizontal="20dp"
+            app:chipSpacingVertical="20dp"
+            app:singleLine="false"
+            app:singleSelection="false">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/vegan"
-            style="@style/AppTheme"
-            android:layout_width="wrap_content"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vegeterain"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/vegetarian"
+                app:chipBackgroundColor="#EE7171"
+                app:chipCornerRadius="15dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vegan"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/vegan"
+                app:chipBackgroundColor="#EE7171"
+                app:chipCornerRadius="15dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/italian"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/italian"
+                app:chipBackgroundColor="#EE7171"
+                app:chipCornerRadius="15dp" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mexican"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/mexican"
+                app:chipBackgroundColor="#EE7171"
+                app:chipCornerRadius="15dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/asian"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/asian"
+                app:chipBackgroundColor="#EE7171"
+                app:chipCornerRadius="15dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recicler_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/vegan"
-            app:chipBackgroundColor="#EE7171"
-            app:chipCornerRadius="15dp" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/italian"
-            style="@style/AppTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/italian"
-            app:chipBackgroundColor="#EE7171"
-            app:chipCornerRadius="15dp" />
+            android:scrollbars="vertical" />
 
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/mexican"
-            style="@style/AppTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/mexican"
-            app:chipBackgroundColor="#EE7171"
-            app:chipCornerRadius="15dp" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/asian"
-            style="@style/AppTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/asian"
-            app:chipBackgroundColor="#EE7171"
-            app:chipCornerRadius="15dp" />
-
-    </com.google.android.material.chip.ChipGroup>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recicler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/VocalButton"
@@ -112,7 +120,12 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:clickable="true"
+        android:focusable="auto"
         android:onClick="vocalInput"
+        app:backgroundTint="#FC3F1B"
+        app:fabCustomSize="77dp"
+        app:maxImageSize="40dp"
         app:srcCompat="@drawable/microphone" />
 
-</LinearLayout>
+
+</FrameLayout>

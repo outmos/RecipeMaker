@@ -168,6 +168,8 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+    // onclick function for the micro button
     public void vocalInput(View view){
 
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -176,18 +178,16 @@ public class HomeActivity extends AppCompatActivity {
         startActivityForResult(intent, 1); // request code by default to 1 but it can be useful for several vocal inputs
 
 
-
-        //sr.setRecognitionListener(new listener());
     }
 
+    // function that gets the vocal input and set the text of the searchbar
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && data != null) {
             ArrayList<String> voiceResult = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            System.out.println(voiceResult);
-            search.setText(voiceResult.get(0);
+            search.setText(voiceResult.get(0));
 
         } else {
             Toast.makeText(getApplicationContext(), "Failed to recognize speech!", Toast.LENGTH_LONG).show();
