@@ -88,6 +88,7 @@ public class HomeActivity extends AppCompatActivity {
                         Recipe recipe = itemSnapshot.getValue(Recipe.class);
                         recipes.add(recipe);
                     }
+
                     adapter.notifyDataSetChanged();
                     progressDialog.dismiss();
 
@@ -118,13 +119,32 @@ public class HomeActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
 
                 ArrayList<Recipe> filterList = new ArrayList<>();
-
+                //get all ingredients from the editable
+                String[] allIngredients = editable.toString().toLowerCase().split(" ");
+                boolean containsAllIngredients = true;
                 for(Recipe recipe: recipes) {
+                    //if the user is searching for a recipe name
                     if(recipe.getName().toLowerCase().contains(editable.toString().toLowerCase())){
                         filterList.add(recipe);
                     }
-                }
+                    //if the user is searching for a recipe by ingredients
+                    else if (allIngredients.length >= 1){
 
+                        for(int i = 0; i< allIngredients.length; i++){
+
+                            if( !recipe.getIngredients().contains(allIngredients[i])){
+                                containsAllIngredients = false;
+                            }
+                        }
+                        if(containsAllIngredients){
+                            filterList.add(recipe);
+                        }
+                        else {
+                            containsAllIngredients = true;
+                        }
+                    }
+
+                }
                 adapter.filteredList(filterList);
             }
         });
@@ -187,7 +207,9 @@ public class HomeActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && data != null) {
             ArrayList<String> voiceResult = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
             search.setText(voiceResult.get(0));
+
 
         } else {
             Toast.makeText(getApplicationContext(), "Failed to recognize speech!", Toast.LENGTH_LONG).show();

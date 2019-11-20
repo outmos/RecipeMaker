@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "25457820315-r04d9ha870jbvqppouct7b2p8g9rmmhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.recipemaker",
+            "certificate_hash": "0e63a55141063cdc719899381ad965e7ae88a235"
+          }
+        },
+        {
           "client_id": "25457820315-9fiv9r62qipt1mogslr47g1i842p14j9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
