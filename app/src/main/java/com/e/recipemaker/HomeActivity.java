@@ -122,6 +122,7 @@ public class HomeActivity extends AppCompatActivity {
                 //get all ingredients from the editable
                 String[] allIngredients = editable.toString().toLowerCase().split(" ");
                 boolean containsAllIngredients = true;
+
                 for(Recipe recipe: recipes) {
                     //if the user is searching for a recipe name
                     if(recipe.getName().toLowerCase().contains(editable.toString().toLowerCase())){
@@ -130,13 +131,13 @@ public class HomeActivity extends AppCompatActivity {
                     //if the user is searching for a recipe by ingredients
                     else if (allIngredients.length >= 1){
 
-                        for(int i = 0; i< allIngredients.length; i++){
+                        for(int i = 0; i< allIngredients.length; i++) {
 
-                            if( !recipe.getIngredients().contains(allIngredients[i])){
+                            if( !recipe.getIngredients().contains(allIngredients[i])) {
                                 containsAllIngredients = false;
                             }
                         }
-                        if(containsAllIngredients){
+                        if(containsAllIngredients) {
                             filterList.add(recipe);
                         }
                         else {
