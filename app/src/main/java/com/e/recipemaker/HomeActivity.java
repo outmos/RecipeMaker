@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.sip.SipSession;
 import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -40,8 +39,6 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     ArrayList<Recipe> recipes;
-    ArrayList<String> tags ;
-
     RecyclerViewAdapter adapter;
     ProgressDialog progressDialog;
     EditText search;
@@ -71,20 +68,16 @@ public class HomeActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Items ...");
         recipes = new ArrayList<>();
-        tags = new ArrayList<String>();
-
 
         adapter = new RecyclerViewAdapter(HomeActivity.this, recipes);
         recyclerView.setAdapter(adapter);
 
-        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final DatabaseReference tagReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("tags");
-
-        final DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Recipes");
+        DatabaseReference myRef;
+        myRef = FirebaseDatabase.getInstance().getReference("Recipes");
         progressDialog.show();
 
         // Read from the database
-        final ValueEventListener listener = new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
@@ -93,15 +86,7 @@ public class HomeActivity extends AppCompatActivity {
                     // whenever data at this location is updated.
                     for(DataSnapshot itemSnapshot: dataSnapshot.getChildren()){
                         Recipe recipe = itemSnapshot.getValue(Recipe.class);
-                        Boolean accepted = true;
-                        for (String tag : tags) {
-                            if (! recipe.getTags().contains(tag)) {
-                                accepted = false;
-                                break;
-                            }
-                        }
-                        if (accepted)
-                            recipes.add(recipe);
+                        recipes.add(recipe);
                     }
 
                     adapter.notifyDataSetChanged();
@@ -116,23 +101,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 progressDialog.dismiss();
-            }
-        };
-        myRef.addValueEventListener(listener);
-
-        tagReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                tags.clear();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    if (child.exists()) {
-                        tags.add(child.getValue(String.class));
-                    }
-                }
-                myRef.addListenerForSingleValueEvent(listener);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
